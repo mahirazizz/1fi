@@ -38,7 +38,10 @@ app.get("/api/health", (req, res) =>
 
 app.get("/api/products", async (req, res, next) => {
   try {
-    const products = await Product.find({}, "name slug brand variants")
+    const products = await Product.find(
+      {},
+      "name slug brand rating soldCount variants",
+    )
       .sort({ createdAt: 1 })
       .lean();
     res.json({
@@ -48,10 +51,14 @@ app.get("/api/products", async (req, res, next) => {
         name: product.name,
         slug: product.slug,
         brand: product.brand,
-        imageUrl: product.variants[0]?.imageUrl,
+        imageUrl:
+          product.variants[0]?.images?.[0]?.url ||
+          product.variants[0]?.imageUrl,
         startingPrice: Math.min(
           ...product.variants.map((variant) => variant.price),
         ),
+        rating: product.rating,
+        soldCount: product.soldCount,
       })),
     });
   } catch (error) {

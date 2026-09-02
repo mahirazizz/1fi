@@ -40,6 +40,15 @@ const variantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    images: {
+      type: [
+        {
+          url: { type: String, required: true },
+          alt: { type: String, required: true },
+        },
+      ],
+      default: [],
+    },
     mrp: {
       type: Number,
       required: true,
@@ -80,6 +89,17 @@ const productSchema = new mongoose.Schema(
     descriptionPoints: {
       type: [String],
       default: [],
+    },
+    rating: {
+      type: Number,
+      min: 0,
+      max: 5,
+      default: 0,
+    },
+    soldCount: {
+      type: Number,
+      min: 0,
+      default: 0,
     },
     variants: {
       type: [variantSchema],

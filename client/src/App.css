@@ -1,4 +1,744 @@
-:root { --ink: #20262d; --muted: #77807b; --green: #2d704c; --mint: #dcebdc; --line: #dfe4de; --paper: #fff; --orange: #e97642; }
-.header, footer { max-width: 1240px; margin: auto; padding: 26px 42px; display: flex; align-items: center; justify-content: space-between; }.header { border-bottom: 1px solid var(--line); }.logo { color: var(--ink); text-decoration: none; font: 700 27px 'Space Grotesk'; letter-spacing: -1.5px; }.logo-mark { display: inline-grid; place-items: center; width: 25px; height: 25px; margin-right: 2px; color: white; background: var(--green); border-radius: 50%; font-size: 17px; }.logo-dot { color: var(--orange); }.header nav { display: flex; align-items: center; gap: 28px; font-size: 13px; }.header nav a { color: var(--ink); text-decoration: none; }.secure, .trust-line { color: var(--muted); display: flex; align-items: center; gap: 7px; }.catalog, .detail { max-width: 1240px; margin: auto; padding: 80px 42px; }.catalog-intro { display: flex; justify-content: space-between; align-items: end; margin-bottom: 62px; }.eyebrow { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; display: flex; align-items: center; gap: 7px; margin: 0 0 16px; }.catalog h1, .details h1 { font: 600 clamp(42px, 5vw, 72px)/.98 'Space Grotesk'; letter-spacing: -4px; margin: 0; }.catalog h1 em { color: var(--green); font-style: normal; }.intro-copy { width: 300px; color: var(--muted); line-height: 1.7; font-size: 14px; }.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }.product-card { background: var(--paper); color: var(--ink); text-decoration: none; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s; }.product-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px #243b2b12; }.product-art { height: 310px; overflow: hidden; display: grid; place-items: center; }.art-0 { background: #e5eee6; }.art-1 { background: #eee9e2; }.art-2 { background: #e7eaf1; }.product-art img { width: 74%; height: 86%; object-fit: contain; mix-blend-mode: multiply; }.product-card-body { padding: 22px 24px 25px; display: flex; justify-content: space-between; }.brand, .starting { color: var(--muted); font-size: 12px; margin: 0 0 6px; }.product-card h2 { font: 600 24px 'Space Grotesk'; margin: 0 0 20px; }.starting strong { color: var(--ink); font-size: 14px; }.round-arrow { width: 38px; height: 38px; display: grid; place-items: center; align-self: end; border: 1px solid var(--line); border-radius: 50%; }.state { min-height: 430px; display: grid; place-items: center; align-content: center; gap: 14px; color: var(--muted); text-align: center; }.spin { animation: spin 1s linear infinite; color: var(--green); }.error-state span { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: white; background: var(--orange); font-weight: 700; }.error-state h2 { margin: 0; font: 600 24px 'Space Grotesk'; color: var(--ink); }.button { border: 0; padding: 15px 19px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-weight: 700; font-size: 14px; transition: opacity .2s, transform .2s; }.button:hover:not(:disabled) { transform: translateY(-1px); }.primary { color: white; background: var(--green); }.secondary { color: var(--ink); background: #eef1ec; }.button:disabled { cursor: not-allowed; opacity: .45; }.detail { padding-top: 34px; }.back-link { padding: 0; display: flex; gap: 5px; align-items: center; border: 0; color: var(--muted); background: none; font-size: 13px; margin-bottom: 36px; }.detail-grid { display: grid; grid-template-columns: minmax(380px, .9fr) 1fr; gap: 90px; }.large-art { height: 570px; display: grid; place-items: center; background: #e5eee6; }.large-art img { width: 77%; height: 90%; object-fit: contain; mix-blend-mode: multiply; }.trust-line { font-size: 12px; justify-content: center; padding: 17px; border-bottom: 1px solid var(--line); }.details h1 { font-size: clamp(42px, 5vw, 68px); margin-bottom: 20px; }.description { max-width: 480px; color: var(--muted); font-size: 14px; line-height: 1.65; }.price-row { display: flex; align-items: center; gap: 14px; margin-top: 28px; }.price-row strong { font: 600 30px 'Space Grotesk'; }.mrp { color: #9da49e; text-decoration: line-through; }.discount { padding: 5px 8px; color: var(--green); background: var(--mint); font-size: 11px; font-weight: 700; }.price-note { color: var(--muted); font-size: 11px; margin: 5px 0 25px; }.rule { height: 1px; background: var(--line); margin: 25px 0; }.selector-heading, .plans-heading { display: flex; justify-content: space-between; align-items: start; }.details h2 { font: 600 18px 'Space Grotesk'; margin: 0 0 5px; }.selector-heading > span { color: var(--green); font-size: 12px; font-weight: 700; }.variant-list { display: flex; gap: 10px; margin-top: 16px; }.variant { position: relative; min-width: 132px; display: flex; align-items: center; gap: 9px; padding: 7px; color: var(--ink); border: 1px solid var(--line); background: white; text-align: left; }.variant.active { border: 2px solid var(--green); padding: 6px; }.variant img { width: 36px; height: 43px; object-fit: contain; mix-blend-mode: multiply; }.variant span { display: grid; gap: 2px; font-size: 11px; }.variant small { color: var(--muted); }.variant svg { margin-left: auto; color: var(--green); }.plans-heading p { color: var(--muted); font-size: 12px; margin: 0; }.fund-badge { padding: 6px 9px; color: var(--green); background: var(--mint); font-size: 10px; font-weight: 700; }.plans { display: grid; gap: 9px; margin-top: 18px; }.plan { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px; text-align: left; background: white; border: 1px solid var(--line); }.plan.active { border: 2px solid var(--green); padding: 13px; background: #f5faf4; }.plan-check { width: 19px; height: 19px; display: grid; place-items: center; border: 1px solid #bdc8bd; border-radius: 50%; color: white; }.active .plan-check { background: var(--green); border-color: var(--green); }.plan-main { display: grid; min-width: 130px; }.plan-main strong { font: 600 15px 'Space Grotesk'; }.plan-main small { color: var(--muted); font: 400 11px 'DM Sans'; }.plan-main span { color: var(--muted); font-size: 11px; margin-top: 3px; }.plan-meta { display: grid; gap: 3px; margin-left: auto; text-align: right; font-size: 11px; }.plan-meta b { color: var(--green); }.plan-meta small { color: var(--orange); font-weight: 700; }.proceed { width: 100%; margin-top: 22px; }.select-hint { color: var(--muted); font-size: 11px; text-align: center; margin: 10px; }.success { display: flex; gap: 9px; align-items: center; justify-content: center; margin-top: 18px; padding: 13px; color: var(--green); background: var(--mint); font-size: 13px; }.modal-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 20px; background: #15251dcc; z-index: 5; }.modal { position: relative; width: min(100%, 480px); padding: 35px; background: white; box-shadow: 0 20px 60px #0004; }.modal h2 { font-size: 29px; margin: 0 0 8px; }.modal-copy { color: var(--muted); font-size: 13px; margin: 0 0 22px; }.close { position: absolute; top: 18px; right: 18px; display: grid; place-items: center; padding: 5px; border: 0; background: none; }.summary { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }.summary div { display: flex; justify-content: space-between; gap: 15px; padding: 12px 0; border-bottom: 1px solid #eef0ed; font-size: 13px; }.summary div:last-child { border: 0; }.summary span { color: var(--muted); }.summary b { text-align: right; }.modal-actions { display: flex; gap: 10px; margin-top: 24px; }.modal-actions .button { flex: 1; }footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@media (max-width: 800px) { .header, footer, .catalog, .detail { padding-left: 20px; padding-right: 20px; }.header { padding-top: 20px; padding-bottom: 20px; }.header nav a { display: none; }.catalog { padding-top: 55px; }.catalog-intro { display: block; margin-bottom: 38px; }.intro-copy { width: auto; margin-top: 22px; }.product-grid { grid-template-columns: 1fr; gap: 15px; }.product-art { height: 280px; }.detail-grid { grid-template-columns: 1fr; gap: 35px; }.large-art { height: 400px; }.detail { padding-top: 25px; }.details h1 { letter-spacing: -2.5px; }.variant-list { overflow-x: auto; padding-bottom: 3px; }.variant { flex: 0 0 145px; }.plans-heading { gap: 8px; }.fund-badge { display: none; }footer { display: grid; gap: 10px; } }
+:root {
+  --ink: #20262d;
+  --muted: #77807b;
+  --green: #2d704c;
+  --mint: #dcebdc;
+  --line: #dfe4de;
+  --paper: #fff;
+  --orange: #e97642;
+}
+.header,
+footer {
+  max-width: 1240px;
+  margin: auto;
+  padding: 26px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header {
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  color: var(--ink);
+  text-decoration: none;
+  font: 700 27px "Space Grotesk";
+  letter-spacing: -1.5px;
+}
+.logo-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  margin-right: 2px;
+  color: white;
+  background: var(--green);
+  border-radius: 50%;
+  font-size: 17px;
+}
+.logo-dot {
+  color: var(--orange);
+}
+.header nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 13px;
+}
+.header nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.secure,
+.trust-line {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.catalog,
+.detail {
+  max-width: 1240px;
+  margin: auto;
+  padding: 80px 42px;
+}
+.catalog-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 62px;
+}
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 16px;
+}
+.catalog h1,
+.details h1 {
+  font: 600 clamp(42px, 5vw, 72px)/0.98 "Space Grotesk";
+  letter-spacing: -4px;
+  margin: 0;
+}
+.catalog h1 em {
+  color: var(--green);
+  font-style: normal;
+}
+.intro-copy {
+  width: 300px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product-card {
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px #243b2b12;
+}
+.product-art {
+  height: 310px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.art-0 {
+  background: #e5eee6;
+}
+.art-1 {
+  background: #eee9e2;
+}
+.art-2 {
+  background: #e7eaf1;
+}
+.product-art img {
+  width: 74%;
+  height: 86%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.product-card-body {
+  padding: 22px 24px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.brand,
+.starting {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+.product-card h2 {
+  font: 600 24px "Space Grotesk";
+  margin: 0 0 20px;
+}
+.starting strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+.round-arrow {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  align-self: end;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.state {
+  min-height: 430px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+.spin {
+  animation: spin 1s linear infinite;
+  color: var(--green);
+}
+.error-state span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: white;
+  background: var(--orange);
+  font-weight: 700;
+}
+.error-state h2 {
+  margin: 0;
+  font: 600 24px "Space Grotesk";
+  color: var(--ink);
+}
+.button {
+  border: 0;
+  padding: 15px 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.primary {
+  color: white;
+  background: var(--green);
+}
+.secondary {
+  color: var(--ink);
+  background: #eef1ec;
+}
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.detail {
+  padding-top: 34px;
+}
+.back-link {
+  padding: 0;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border: 0;
+  color: var(--muted);
+  background: none;
+  font-size: 13px;
+  margin-bottom: 36px;
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(380px, 0.9fr) 1fr;
+  gap: 90px;
+}
+.large-art {
+  height: 570px;
+  display: grid;
+  place-items: center;
+  background: #e5eee6;
+}
+.large-art img {
+  width: 77%;
+  height: 90%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.trust-line {
+  font-size: 12px;
+  justify-content: center;
+  padding: 17px;
+  border-bottom: 1px solid var(--line);
+}
+.details h1 {
+  font-size: clamp(42px, 5vw, 68px);
+  margin-bottom: 20px;
+}
+.description {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+.price-row strong {
+  font: 600 30px "Space Grotesk";
+}
+.mrp {
+  color: #9da49e;
+  text-decoration: line-through;
+}
+.discount {
+  padding: 5px 8px;
+  color: var(--green);
+  background: var(--mint);
+  font-size: 11px;
+  font-weight: 700;
+}
+.price-note {
+  color: var(--muted);
+  font-size: 11px;
+  margin: 5px 0 25px;
+}
+.rule {
+  height: 1px;
+  background: var(--line);
+  margin: 25px 0;
+}
+.selector-heading,
+.plans-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.details h2 {
+  font: 600 18px "Space Grotesk";
+  margin: 0 0 5px;
+}
+.selector-heading > span {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+}
+.variant-list {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.variant {
+  position: relative;
+  min-width: 132px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: white;
+  text-align: left;
+}
+.variant.active {
+  border: 2px solid var(--green);
+  padding: 6px;
+}
+.variant img {
+  width: 36px;
+  height: 43px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.variant span {
+  display: grid;
+  gap: 2px;
+  font-size: 11px;
+}
+.variant small {
+  color: var(--muted);
+}
+.variant svg {
+  margin-left: auto;
+  color: var(--green);
+}
+.plans-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+.fund-badge {
+  padding: 6px 9px;
+  color: var(--green);
+  background: var(--mint);
+  font-size: 10px;
+  font-weight: 700;
+}
+.plans {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+.plan {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  text-align: left;
+  background: white;
+  border: 1px solid var(--line);
+}
+.plan.active {
+  border: 2px solid var(--green);
+  padding: 13px;
+  background: #f5faf4;
+}
+.plan-check {
+  width: 19px;
+  height: 19px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bdc8bd;
+  border-radius: 50%;
+  color: white;
+}
+.active .plan-check {
+  background: var(--green);
+  border-color: var(--green);
+}
+.plan-main {
+  display: grid;
+  min-width: 130px;
+}
+.plan-main strong {
+  font: 600 15px "Space Grotesk";
+}
+.plan-main small {
+  color: var(--muted);
+  font: 400 11px "DM Sans";
+}
+.plan-main span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+.plan-meta {
+  display: grid;
+  gap: 3px;
+  margin-left: auto;
+  text-align: right;
+  font-size: 11px;
+}
+.plan-meta b {
+  color: var(--green);
+}
+.plan-meta small {
+  color: var(--orange);
+  font-weight: 700;
+}
+.proceed {
+  width: 100%;
+  margin-top: 22px;
+}
+.select-hint {
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+  margin: 10px;
+}
+.success {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 13px;
+  color: var(--green);
+  background: var(--mint);
+  font-size: 13px;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #15251dcc;
+  z-index: 5;
+}
+.modal {
+  position: relative;
+  width: min(100%, 480px);
+  padding: 35px;
+  background: white;
+  box-shadow: 0 20px 60px #0004;
+}
+.modal h2 {
+  font-size: 29px;
+  margin: 0 0 8px;
+}
+.modal-copy {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 22px;
+}
+.close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  border: 0;
+  background: none;
+}
+.summary {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef0ed;
+  font-size: 13px;
+}
+.summary div:last-child {
+  border: 0;
+}
+.summary span {
+  color: var(--muted);
+}
+.summary b {
+  text-align: right;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.modal-actions .button {
+  flex: 1;
+}
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 800px) {
+  .header,
+  footer,
+  .catalog,
+  .detail {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .header nav a {
+    display: none;
+  }
+  .catalog {
+    padding-top: 55px;
+  }
+  .catalog-intro {
+    display: block;
+    margin-bottom: 38px;
+  }
+  .intro-copy {
+    width: auto;
+    margin-top: 22px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .product-art {
+    height: 280px;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .large-art {
+    height: 400px;
+  }
+  .detail {
+    padding-top: 25px;
+  }
+  .details h1 {
+    letter-spacing: -2.5px;
+  }
+  .variant-list {
+    overflow-x: auto;
+    padding-bottom: 3px;
+  }
+  .variant {
+    flex: 0 0 145px;
+  }
+  .plans-heading {
+    gap: 8px;
+  }
+  .fund-badge {
+    display: none;
+  }
+  footer {
+    display: grid;
+    gap: 10px;
+  }
+}
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 25px;
+  color: var(--muted);
+  font-size: 11px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.breadcrumbs a {
+  color: var(--green);
+  text-decoration: none;
+}
+.breadcrumbs b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 14px;
+}
+.gallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.thumb {
+  height: 76px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.thumb.active {
+  border: 2px solid var(--green);
+  padding: 4px;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.social-proof {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #d88929;
+  font-weight: 700;
+}
+.description-points {
+  display: grid;
+  gap: 6px;
+  padding: 0 0 0 18px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.description-points li::marker {
+  color: var(--green);
+}
+.selector {
+  margin: 18px 0;
+}
+.selector-heading {
+  margin-bottom: 12px;
+}
+.selector-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.selector-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 13px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: #fff;
+  font-size: 12px;
+}
+.selector-option.active {
+  border: 2px solid var(--green);
+  padding: 7px 12px;
+  color: var(--green);
+  font-weight: 700;
+  background: #f5faf4;
+}
+.selector-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+.color-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #aab1ab;
+  border-radius: 50%;
+}
+.image-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  background: #e5eee6;
+  font: 700 35px "Space Grotesk";
+}
+.large-art.image-fallback {
+  width: 100%;
+  height: 100%;
+}
+.product-art .image-fallback {
+  width: 74%;
+  height: 86%;
+}
+.thumb .image-fallback {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+@media (max-width: 800px) {
+  .breadcrumbs {
+    margin-bottom: 18px;
+  }
+  .gallery {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+  .gallery-thumbs {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .thumb {
+    flex: 0 0 66px;
+    height: 66px;
+  }
+  .large-art {
+    width: 100%;
+  }
+  .description-points {
+    margin-bottom: 18px;
+  }
+  .selector-options {
+    gap: 7px;
+  }
+}
