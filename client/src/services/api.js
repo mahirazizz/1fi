@@ -7,5 +7,13 @@ async function request(path) {
   return body.data;
 }
 export const getProducts = () => request("/products");
-export const getProduct = (slug) =>
-  request(`/products/${encodeURIComponent(slug)}`);
+export const getProduct = async (slug) => {
+  const product = await request(`/products/${encodeURIComponent(slug)}`);
+  return {
+    ...product,
+    description:
+      product.descriptionPoints?.length > 0
+        ? product.descriptionPoints.join("  •  ")
+        : product.description,
+  };
+};
