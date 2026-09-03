@@ -221,6 +221,11 @@ const products = [
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(async () => {
+    try {
+      await Product.collection.dropIndex("product_id_1");
+    } catch (error) {
+      if (error.codeName !== "IndexNotFound" && error.code !== 27) throw error;
+    }
     await Product.deleteMany({});
     await Product.insertMany(products);
     console.log(`Seeded ${products.length} products`);
