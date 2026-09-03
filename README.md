@@ -48,4 +48,25 @@ The Express server follows MVC boundaries:
 
 `src/app.js` only configures middleware and composes the route modules.
 
-For deployment, use a hosted MongoDB URI, deploy the server to Render/Railway with `FRONTEND_URL`, and deploy the Vite client to Vercel with the deployed `VITE_API_URL`. Configure the SPA fallback to serve `index.html` for `/products/*` routes.
+## Deploy
+
+Create a MongoDB Atlas database and allow connections from your deployed Netlify function. Seed it once locally with the Atlas URI:
+
+```bash
+cd server
+npm install
+npm run seed
+```
+
+Deploy the frontend to Vercel by importing the repository and setting the project root to `client`. The included `client/vercel.json` builds the Vite app and rewrites browser routes to `index.html`. Add this Vercel environment variable:
+
+- `VITE_API_URL`: `https://<your-netlify-site>.netlify.app/api`
+
+Deploy the API to Netlify by importing the repository and setting the base directory to `server`. The included `server/netlify.toml` publishes the Netlify Function and maps `/api/*` to it. Add these Netlify environment variables:
+
+- `MONGODB_URI`: your MongoDB Atlas connection string
+- `FRONTEND_URL`: your Vercel site URL
+
+The Netlify adapter is `server/netlify/functions/api.js`; it handles the `/api/health` and `/api/products` endpoints without calling `listen()`.
+
+After both deployments, open the Vercel URL and verify `https://<your-netlify-site>.netlify.app/api/health` returns a successful response.

@@ -1,5 +1,5 @@
 const { z } = require("zod");
-const { Product } = require("./models");
+const { Product } = require("../model/models");
 const { serializeProduct, serializeVariant } = require("../utils/serializers");
 
 const slugSchema = z.string().min(1).max(120).regex(/^[a-z0-9-]+$/);
