@@ -36,4 +36,16 @@ Client: `npm run dev`, `npm run build`, `npm run preview`.
 
 Server: `npm run dev`, `npm start`, `npm run seed`.
 
+## Server architecture
+
+The Express server follows MVC boundaries:
+
+- `src/controllers` handles request and response logic.
+- `src/routes` maps HTTP endpoints to controllers.
+- `src/controllers/models.js` contains the Mongoose product model.
+- `src/utils` contains response serialization helpers.
+- `src/middleware` contains shared Express middleware such as error handling.
+
+`src/app.js` only configures middleware and composes the route modules.
+
 For deployment, use a hosted MongoDB URI, deploy the server to Render/Railway with `FRONTEND_URL`, and deploy the Vite client to Vercel with the deployed `VITE_API_URL`. Configure the SPA fallback to serve `index.html` for `/products/*` routes.

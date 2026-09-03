@@ -1,6 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const { Product } = require("./models");
+const { Product } = require("./controllers/models");
 
 const image = (url, alt) => ({ url, alt });
 const gallery = (color, urls) =>
