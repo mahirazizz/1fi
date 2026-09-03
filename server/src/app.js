@@ -5,7 +5,18 @@ const healthRoutes = require("./routes/healthRoutes");
 const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
-app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:5173" }));
+const configuredOrigins = (process.env.FRONTEND_URL || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+const allowedOrigins = [
+  ...new Set([
+    ...configuredOrigins,
+    "http://localhost:5173",
+    "https://1fi-64rf8btpy-mahiraziz.vercel.app",
+  ]),
+];
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 app.use("/api/health", healthRoutes);
