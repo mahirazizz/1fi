@@ -42,7 +42,7 @@ The Express server follows MVC boundaries:
 
 - `src/controllers` handles request and response logic.
 - `src/routes` maps HTTP endpoints to controllers.
-- `src/controllers/models.js` contains the Mongoose product model.
+- `src/model/models.js` contains the Mongoose product model.
 - `src/utils` contains response serialization helpers.
 - `src/middleware` contains shared Express middleware such as error handling.
 
@@ -50,7 +50,7 @@ The Express server follows MVC boundaries:
 
 ## Deploy
 
-Create a MongoDB Atlas database and allow connections from your deployed Netlify function. Seed it once locally with the Atlas URI:
+Create a MongoDB Atlas database and allow connections from your deployed Render service. Seed it once locally with the Atlas URI:
 
 ```bash
 cd server
@@ -58,15 +58,12 @@ npm install
 npm run seed
 ```
 
-Deploy the frontend to Vercel by importing the repository and setting the project root to `client`. The included `client/vercel.json` builds the Vite app and rewrites browser routes to `index.html`. Add this Vercel environment variable:
-
-- `VITE_API_URL`: `https://<your-netlify-site>.netlify.app/api`
-
-Deploy the API to Netlify by importing the repository and setting the base directory to `server`. The included `server/netlify.toml` publishes the Netlify Function and maps `/api/*` to it. Add these Netlify environment variables:
+Deploy the API to Render by creating a Node service with the root directory set to `server`, build command `npm install`, and start command `npm start`. Add these environment variables:
 
 - `MONGODB_URI`: your MongoDB Atlas connection string
-- `FRONTEND_URL`: your Vercel site URL
+- `PORT`: the port provided by Render, if required by the service configuration
+- `FRONTEND_URL`: your Vercel site URL (comma-separated URLs are supported)
 
-The Netlify adapter is `server/netlify/functions/api.js`; it handles the `/api/health` and `/api/products` endpoints without calling `listen()`.
+Deploy the frontend to Vercel by importing the repository and setting the project root to `client`. The included `client/vercel.json` builds the Vite app, proxies `/api/*` to the Render API, and rewrites browser routes to `index.html`. Leave `VITE_API_URL` unset in Vercel so the frontend uses the same-origin `/api` proxy. For local development, use `VITE_API_URL=http://localhost:5000/api`.
 
-After both deployments, open the Vercel URL and verify `https://<your-netlify-site>.netlify.app/api/health` returns a successful response.
+After both deployments, open the Vercel URL and verify `/api/health` returns a successful response. The direct Render health URL is `https://<your-render-service>.onrender.com/api/health`.
