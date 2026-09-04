@@ -16,7 +16,16 @@ const allowedOrigins = [
     "https://1fi-64rf8btpy-mahiraziz.vercel.app",
   ]),
 ];
-app.use(cors({ origin: allowedOrigins }));
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Origin is not allowed by CORS"));
+    },
+  }),
+);
 app.use(express.json());
 
 app.use("/api/health", healthRoutes);
