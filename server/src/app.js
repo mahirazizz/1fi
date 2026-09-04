@@ -16,10 +16,13 @@ const allowedOrigins = [
     "https://1fi-64rf8btpy-mahiraziz.vercel.app",
   ]),
 ];
+const isAllowedOrigin = (origin) =>
+  allowedOrigins.includes(origin) ||
+  /^https:\/\/1fi-[a-z0-9]+-mahiraziz\.vercel\.app$/i.test(origin);
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || isAllowedOrigin(origin)) {
         return callback(null, true);
       }
       return callback(new Error("Origin is not allowed by CORS"));
