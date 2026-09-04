@@ -18,7 +18,7 @@ const allowedOrigins = [
 ];
 const isAllowedOrigin = (origin) =>
   allowedOrigins.includes(origin) ||
-  /^https:\/\/1fi-[a-z0-9]+-mahiraziz\.vercel\.app$/i.test(origin);
+  /^https:\/\/1fi-[a-z0-9-]+-mahiraziz\.vercel\.app$/i.test(origin);
 app.use(
   cors({
     origin(origin, callback) {
