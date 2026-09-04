@@ -5,7 +5,7 @@ const API_URL =
     ? configuredApiUrl
     : import.meta.env.DEV
       ? "http://localhost:5000/api"
-      : "https://onefi-f8r4.onrender.com/api";
+      : "/api";
 async function request(path) {
   const response = await fetch(`${API_URL}${path}`);
   const body = await response.json();
